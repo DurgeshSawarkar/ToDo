@@ -1,3 +1,4 @@
+from gc import get_objects
 from django.shortcuts import get_object_or_404, redirect, render
 from .models import Tasks
 
@@ -38,3 +39,8 @@ def update_task(request, pk):
             'task' : task,
         }
         return render(request, 'update_task.html', context)
+    
+    
+def clear_all(request):
+    Tasks.objects.all().delete() 
+    return redirect('home')

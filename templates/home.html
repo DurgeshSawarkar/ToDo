@@ -95,6 +95,7 @@
                   name="task"
                   class="form-control"
                   placeholder="Add a task"
+                  required
                 />
                 <button
                   type="submit"
@@ -105,6 +106,10 @@
                 </button>
               </span>
             </div>
+          </form>
+          <form method="post" action="{% url 'clear_all' %}">
+            {% csrf_token %}
+            <button type="submit">Clear All</button>
           </form>
         </div>
       </div>
